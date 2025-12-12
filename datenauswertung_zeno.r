@@ -15,7 +15,7 @@ library(here)
 # - Füllt Hierarchie nach unten und reduziert auf Gemeindedaten
 
 lade_jahr <- function(jahr) {
-  read_excel(here("Daten", "wohnbevoelkerung.xlsx"), sheet = as.character(jahr), skip = 1) |>
+  read_excel(here("wohnbevoelkerung.xlsx"), sheet = as.character(jahr), skip = 1) |>
     rename(`100` = `100 und mehr`) |>
     mutate(
       Jahr = jahr,
