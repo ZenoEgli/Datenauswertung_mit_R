@@ -5,6 +5,7 @@
 # Pakete laden
 library(tidyverse)
 library(readxl)
+library(here)
 
 # ---------------------------------------------
 # 1. Funktion: Ein Jahr einlesen & auf Gemeindeniveau bringen
@@ -14,7 +15,7 @@ library(readxl)
 # - Füllt Hierarchie nach unten und reduziert auf Gemeindedaten
 
 lade_jahr <- function(jahr) {
-  read_excel("wohnbevoelkerung.xlsx", sheet = as.character(jahr), skip = 1) |>
+  read_excel(here("Daten", "wohnbevoelkerung.xlsx"), sheet = as.character(jahr), skip = 1) |>
     rename(`100` = `100 und mehr`) |>
     mutate(
       Jahr = jahr,
